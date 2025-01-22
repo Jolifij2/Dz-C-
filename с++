@@ -1,0 +1,69 @@
+#include <iostream>
+using namespace std;
+//ВСЕ ЗАДАНИЯ В ОДНОМ!
+void bubbleSort(long arr[], int size,int &coun) {
+    bool swapped;
+    coun = 0;
+  for (int i = 0; i < size - 1; i++) {
+        swapped = false;
+        for (int j = 0; j < size - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                coun ++;
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+                swapped = true;
+            }
+        }
+        if (!swapped) break; // Если в проходе не было обменов, массив уже отсортирован
+    }
+}
+
+void New(long arr[], int size){
+for(int i=0;i<size;i++){
+cout<<arr[i]<<" ";
+  }
+}
+
+
+int main(){
+int coun=0;
+  char a;
+  const int size = 5;
+long MobNam[size]={8912111111,8912111113,8912111114,8912111109,8912111178,};
+long DomNam[size]={89124,89134,89671,89109,89112};  
+  do {
+cout << "\nОтсортировать только мобильные нажми 1;\nОстортеровать только домашнии номера нажми 2;\nОтсортеровать то и то и вывести нажми 3;\nЗакончить нажми 0:" << endl;
+  cout<<"Ввод: ";
+  cin>>a;
+  switch(a){
+    case '0':
+    cout << "end";
+    break;
+    
+    case '1':
+  cout << "\nОтсортированы мобильные номера: ";
+      bubbleSort(MobNam,size,coun);
+      New(MobNam,size);
+      cout << "\nКоличество перестановок: " << coun;
+      break;
+  
+    case '2':
+    cout << "\nОтсортированы домашнии номера: ";
+      bubbleSort(DomNam,size,coun);
+      New(DomNam,size);
+      cout << "\nКоличество перестановок: " << coun;
+      break;
+   
+  case '3':
+    cout << "\nОтсортированы мобильные номера: ";
+   bubbleSort(MobNam,size,coun);
+    New(MobNam,size);
+    cout << endl;
+    cout << "\nОтсортированы домашнии номера: ";
+      bubbleSort(DomNam,size,coun);
+    New(DomNam,size);
+    cout << "\nКоличество перестановок: " << coun;
+    break;
+  }
+}while(a!='0');}
